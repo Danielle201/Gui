@@ -82,20 +82,97 @@ toggleButton.MouseButton1Click:Connect(function()
     frame.Visible = uiVisible
 end)
 
--- Assuming you have the existing frame and screenGui from the previous script
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TabGUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = game:GetService("CoreGui")
 
--- Create the Button
-local button = Instance.new("TextButton", frame) -- Parent the button to the frame
-button.Size = UDim2.new(0, 150, 0, 50) -- Button size (150x50 pixels)
-button.Position = UDim2.new(0, 60, 0, 50) -- Centered within the frame
-button.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Button background color
-button.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text color
-button.Font = Enum.Font.SourceSansBold -- Font type
-button.TextSize = 24 -- Font size
-button.Text = "Click Me!" -- Text displayed on the button
+-- Main Frame
+local mainFrame = Instance.new("Frame", screenGui)
+mainFrame.Size = UDim2.new(0.5, 0, 0.5, 0)
+mainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
+mainFrame.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
+mainFrame.BorderSizePixel = 0
 
--- Button Click Functionality
-button.MouseButton1Click:Connect(function()
-    print("Button was clicked!")
-    -- Add your custom functionality here
+-- Header for Tabs
+local header = Instance.new("Frame", mainFrame)
+header.Size = UDim2.new(1, 0, 0, 50)
+header.Position = UDim2.new(0, 0, 0, 0)
+header.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+header.BorderSizePixel = 0
+
+-- Create Tab Button Function
+local function createTabButton(name, position, onClick)
+    local button = Instance.new("TextButton", header)
+    button.Size = UDim2.new(0.25, 0, 1, 0)
+    button.Position = position
+    button.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Font = Enum.Font.SourceSansBold
+    button.TextSize = 24
+    button.Text = name
+
+    button.MouseButton1Click:Connect(onClick)
+    return button
+end
+
+-- Content Panel Function
+local function createContentPanel(color, visible)
+    local panel = Instance.new("Frame", mainFrame)
+    panel.Size = UDim2.new(1, 0, 1, -50)
+    panel.Position = UDim2.new(0, 0, 0, 50)
+    panel.BackgroundColor3 = color
+    panel.Visible = visible
+    return panel
+end
+
+-- Buttons for Each Content Panel
+local function createContentButton(parent, text)
+    local button = Instance.new("TextButton", parent)
+    button.Size = UDim2.new(0, 150, 0, 50)
+    button.Position = UDim2.new(0.5, -75, 0.5, -25)
+    button.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Font = Enum.Font.SourceSansBold
+    button.TextSize = 24
+    button.Text = text
+    return button
+end
+
+-- Create Tabs and Content Panels
+local tabButton1 = createTabButton("Tab 1", UDim2.new(0, 0, 0, 0), function()
+    switchTab(1)
 end)
+local tabButton2 = createTabButton("Tab 2", UDim2.new(0.25, 0, 0, 0), function()
+    switchTab(2)
+end)
+local tabButton3 = createTabButton("Tab 3", UDim2.new(0.50, 0, 0, 0), function()
+    switchTab(3)
+end)
+local tabButton4 = createTabButton("Tab 4", UDim2.new(0.75, 0, 0, 0), function()
+    switchTab(4)
+end)
+
+local contentPanel1 = createContentPanel(Color3.fromRGB(200, 200, 200), true)
+local contentPanel2 = createContentPanel(Color3.fromRGB(180, 180, 180), false)
+local contentPanel3 = createContentPanel(Color3.fromRGB(160, 160, 160), false)
+local contentPanel4 = createContentPanel(Color3.fromRGB(140, 140, 140), false)
+
+createContentButton(contentPanel1, "Button in Tab 1")
+createContentButton(contentPanel2, "Button in Tab 2")
+createContentButton(contentPanel3, "Button in Tab 3")
+createContentButton(contentPanel4, "Button in Tab 4")
+
+-- Function to Switch Tabs
+local function switchTab(tabIndex)
+    contentPanel1.Visible = (tabIndex == 1)
+    contentPanel2.Visible = (tabIndex == 2)
+    contentPanel3.Visible = (tabIndex == 3)
+    contentPanel4.Visible = (tabIndex == 4)
+
+    tabButton1.BackgroundColor3 = (tabIndex == 1) and Color3.fromRGB(100, 100, 100) or Color3.fromRGB(80, 80, 80)
+    tabButton2.BackgroundColor3 = (tabIndex == 2) and Color3.fromRGB(100, 100, 100) or Color3.fromRGB(80, 80, 80)
+    tabButton3.BackgroundColor3 = (tabIndex == 3) and Color3.fromRGB(100, 100, 100) or Color3.fromRGB(80, 80, 80)
+    tabButton4.BackgroundColor3 = (tabIndex == 4) and Color3.fromRGB(100, 100, 100) or Color3.fromRGB(80, 80, 80)
+end
