@@ -87,7 +87,7 @@ end)
 -- Create the Button
 local button = Instance.new("TextButton", frame) -- Parent the button to the frame
 button.Size = UDim2.new(0, 150, 0, 50) -- Button size (150x50 pixels)
-button.Position = UDim2.new(0.5, -75, 0.5, -25) -- Centered within the frame
+button.Position = UDim2.new(0, 20, 0.5, 20) -- Centered within the frame
 button.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Button background color
 button.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text color
 button.Font = Enum.Font.SourceSansBold -- Font type
