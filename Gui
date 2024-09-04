@@ -1,13 +1,43 @@
 local player = game.Players.LocalPlayer
-local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "DraggableGUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = game:GetService("CoreGui")
 
+-- Main Frame (50% of the screen, darker grey background)
 local frame = Instance.new("Frame", screenGui)
-frame.Size = UDim2.new(0, 600, 0, 400) -- Increased size
-frame.Position = UDim2.new(0.5, -200, 0.5, -100) -- Adjusted position for center alignment
-frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+frame.Size = UDim2.new(0.5, 0, 0.5, 0) -- 50% of screen size
+frame.Position = UDim2.new(0.25, 0, 0.25, 0) -- Centered on screen
+frame.BackgroundColor3 = Color3.fromRGB(105, 105, 105) -- Darker grey background
 frame.BorderSizePixel = 0
 
+-- Header Frame (Black Grey)
+local header = Instance.new("Frame", frame)
+header.Size = UDim2.new(1, 0, 0, 50) -- Full width, 50px height
+header.Position = UDim2.new(0, 0, 0, 0)
+header.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- Black-grey background
+header.BorderSizePixel = 0
+
+-- Text Label ("VortexFusionX")
+local titleLabel = Instance.new("TextLabel", header)
+titleLabel.Size = UDim2.new(1, 0, 1, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "VortexFusionX"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.TextSize = 36 -- Large text
+
+-- Toggle Button (Next to Chat)
+local toggleButton = Instance.new("TextButton", screenGui)
+toggleButton.Size = UDim2.new(0, 100, 0, 40) -- Button size
+toggleButton.Position = UDim2.new(0, 10, 1, -50) -- Positioned next to chat
+toggleButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- Black-grey button
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.TextSize = 20
+toggleButton.Text = "Toggle Ui"
+
+-- Dragging Functionality
 local dragToggle = nil
 local dragSpeed = 0.1
 local dragInput = nil
@@ -20,7 +50,7 @@ local function updateInput(input)
     game:GetService("TweenService"):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
 end
 
-frame.InputBegan:Connect(function(input)
+header.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         dragToggle = true
         dragStart = input.Position
@@ -33,7 +63,7 @@ frame.InputBegan:Connect(function(input)
     end
 end)
 
-frame.InputChanged:Connect(function(input)
+header.InputChanged:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         dragInput = input
     end
@@ -43,4 +73,29 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
     if input == dragInput and dragToggle then
         updateInput(input)
     end
+end)
+
+-- Toggle UI Functionality
+local uiVisible = true
+toggleButton.MouseButton1Click:Connect(function()
+    uiVisible = not uiVisible
+    frame.Visible = uiVisible
+end)
+
+-- Assuming you have the existing frame and screenGui from the previous script
+
+-- Create the Button
+local button = Instance.new("TextButton", frame) -- Parent the button to the frame
+button.Size = UDim2.new(0, 150, 0, 50) -- Button size (150x50 pixels)
+button.Position = UDim2.new(0.5, -75, 0.5, -25) -- Centered within the frame
+button.BackgroundColor3 = Color3.fromRGB(70, 70, 70) -- Button background color
+button.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text color
+button.Font = Enum.Font.SourceSansBold -- Font type
+button.TextSize = 24 -- Font size
+button.Text = "Click Me!" -- Text displayed on the button
+
+-- Button Click Functionality
+button.MouseButton1Click:Connect(function()
+    print("Button was clicked!")
+    -- Add your custom functionality here
 end)
