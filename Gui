@@ -5,13 +5,6 @@ gui.Parent = game.CoreGui
 --///patrick gui maker///--
 
 
-local gui = Instance.new("ScreenGui")
-gui.Name = "patrickGui"
-gui.Parent = game.CoreGui
-
---///patrick gui maker///--
-
-
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0.6, 0, 0.6, 0)
 Frame.Position = UDim2.new(0.30, 0, 0.30, 0)
