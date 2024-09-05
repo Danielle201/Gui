@@ -124,7 +124,7 @@ tab1Button.Parent = rightButtonSection  -- Add this button to the right scrollab
 -- Create another button for Tab 2
 local tab2Button = Instance.new("TextButton")
 tab2Button.Size = UDim2.new(0, 200, 0, 50)
-tab2Button.Position = UDim2.new(0.5, -100, 0.2, 0)  -- Adjust the position to be below the first button
+tab2Button.Position = UDim2.new(0.5, -100, 0.1, 0)  -- Adjust the position to be below the first button
 tab2Button.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 tab2Button.TextColor3 = Color3.fromRGB(255, 255, 255)
 tab2Button.Font = Enum.Font.SourceSansBold
