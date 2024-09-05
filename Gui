@@ -5,6 +5,13 @@ gui.Parent = game.CoreGui
 --///patrick gui maker///--
 
 
+local gui = Instance.new("ScreenGui")
+gui.Name = "patrickGui"
+gui.Parent = game.CoreGui
+
+--///patrick gui maker///--
+
+
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0.6, 0, 0.6, 0)
 Frame.Position = UDim2.new(0.30, 0, 0.30, 0)
@@ -17,6 +24,17 @@ Frame.Draggable = true
 Frame.Parent = gui
 
 ResetOnSpawn = false
+
+local ScrollingFrame = Instance.new("ScrollingFrame")
+ScrollingFrame.Size = UDim2.new(0.8, 0, 0.8, 0)
+ScrollingFrame.Position = UDim2.new(0.20, 0, 0.20, 0)
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+ScrollingFrame.BorderColor3 = Color3.new(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 1
+ScrollingFrame.Parent = Frame
+
+
+ScrollingFrame.BackgroundTransparency = 0
 
 local Frame2 = Instance.new("Frame")
 Frame2.Size = UDim2.new(1, 0, 0, 55)
@@ -41,3 +59,17 @@ Header.TextColor3 = Color3.new(255, 255, 255)
 Header.Font = Enum.Font.Code
 Header.Parent = Frame2
 Header.TextSize = 36
+
+local TextButton = Instance.new("TextButton")
+TextButton.Size = UDim2.new(0.5, 0, 0.1, 0)
+TextButton.Position = UDim2.new(0, 0, 0, 0)
+TextButton.BackgroundColor3 = Color3.new(0, 0, 0)
+TextButton.BorderColor3 = Color3.new(0, 0, 0)
+TextButton.BorderSizePixel = 1
+TextButton.Text = "Print skibidi"
+TextButton.BackgroundTransparency = 0 
+TextButton.TextColor3 = Color3.new(255, 255, 255)
+TextButton.Font = Enum.Font.Code
+TextButton.Parent = ScrollingFrame
+
+TextButton.TextSize = 30
