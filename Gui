@@ -108,3 +108,50 @@ userInputService.InputChanged:Connect(function(input)
         )
     end
 end)
+
+-- Create the button for Tab 1 (hidden by default)
+local tab1Button = Instance.new("TextButton")
+tab1Button.Size = UDim2.new(0, 200, 0, 50)
+tab1Button.Position = UDim2.new(0.5, -100, 0.1, 0)
+tab1Button.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+tab1Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+tab1Button.Font = Enum.Font.SourceSansBold
+tab1Button.TextSize = 24
+tab1Button.Text = "Tab 1 Button"
+tab1Button.Visible = false  -- Hide by default
+tab1Button.Parent = rightButtonSection  -- Add this button to the right scrollable section
+
+-- Create another button for Tab 2
+local tab2Button = Instance.new("TextButton")
+tab2Button.Size = UDim2.new(0, 200, 0, 50)
+tab2Button.Position = UDim2.new(0.5, -100, 0.2, 0)  -- Adjust the position to be below the first button
+tab2Button.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+tab2Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+tab2Button.Font = Enum.Font.SourceSansBold
+tab2Button.TextSize = 24
+tab2Button.Text = "Tab 2 Button"
+tab2Button.Visible = false  -- Hide by default
+tab2Button.Parent = rightButtonSection  -- Add this button to the right scrollable section
+
+-- Function to show buttons based on the selected tab
+local function onTabSelected(tabName)
+    if tabName == "Tab 1" then
+        tab1Button.Visible = true
+        tab2Button.Visible = false
+    elseif tabName == "Tab 2" then
+        tab1Button.Visible = false
+        tab2Button.Visible = true
+    else
+        tab1Button.Visible = false
+        tab2Button.Visible = false
+    end
+end
+
+-- Connect the tab buttons to show/hide the corresponding buttons
+for i, tabButton in pairs(leftTabSection:GetChildren()) do
+    if tabButton:IsA("TextButton") then
+        tabButton.MouseButton1Click:Connect(function()
+            onTabSelected(tabButton.Text)
+        end)
+    end
+end
