@@ -10,7 +10,7 @@ screenGui.Parent = game:GetService("CoreGui")
 local toggleButton = Instance.new("TextButton")
 toggleButton.Parent = screenGui
 toggleButton.Size = UDim2.new(0, 150, 0, 50)
-toggleButton.Position = UDim2.new(0, 10, 1, -50)  -- Corner near chat
+toggleButton.Position = UDim2.new(0, 0, 1, -50)  -- Corner near chat
 toggleButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
 toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 toggleButton.Font = Enum.Font.SourceSansBold
@@ -61,7 +61,7 @@ end
 local rightButtonSection = Instance.new("ScrollingFrame", mainFrame)
 rightButtonSection.Size = UDim2.new(0.75, 0, 1, -50)  -- 75% width, full height minus header
 rightButtonSection.Position = UDim2.new(0.2, 0, 0, 50)  -- Right of tabs, below the header
-rightButtonSection.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+rightButtonSection.BackgroundColor3 = Color3.fromRGB(98, 93, 93)
 rightButtonSection.BorderSizePixel = 0
 rightButtonSection.CanvasSize = UDim2.new(0, 0, 3, 0)  -- Make it scrollable
 rightButtonSection.ScrollBarThickness = 6
