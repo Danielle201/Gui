@@ -1,157 +1,43 @@
-local player = game.Players.LocalPlayer
-local userInputService = game:GetService("UserInputService")
+local gui = Instance.new("ScreenGui")
+gui.Name = "patrickGui"
+gui.Parent = game.CoreGui
 
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "MainGUI"
-screenGui.ResetOnSpawn = false
-screenGui.Parent = game:GetService("CoreGui")
+--///patrick gui maker///--
 
--- Toggle Button in Corner Next to Chat
-local toggleButton = Instance.new("TextButton")
-toggleButton.Parent = screenGui
-toggleButton.Size = UDim2.new(0, 150, 0, 50)
-toggleButton.Position = UDim2.new(0, 0, 1, -50)  -- Corner near chat
-toggleButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-toggleButton.Font = Enum.Font.SourceSansBold
-toggleButton.TextSize = 24
-toggleButton.Text = "Toggle UI"
 
--- Main Frame (50% of screen, darker gray background)
-local mainFrame = Instance.new("Frame", screenGui)
-mainFrame.Size = UDim2.new(0.5, 0, 0.5, 0)
-mainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
-mainFrame.BackgroundColor3 = Color3.fromRGB(90, 90, 90)  -- Darker gray
-mainFrame.BorderSizePixel = 0
-mainFrame.Active = true  -- Required for dragging
-mainFrame.Draggable = false -- Custom dragging
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0.6, 0, 0.6, 0)
+Frame.Position = UDim2.new(0.30, 0, 0.30, 0)
+Frame.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 2
+Frame.Active = true
+Frame.BackgroundTransparency = 0 
+Frame.Draggable = true
+Frame.Parent = gui
 
--- Header with "VortexFusionX"
-local header = Instance.new("TextLabel", mainFrame)
-header.Size = UDim2.new(1, 0, 0, 50)  -- Full width, height of 50 pixels
-header.Position = UDim2.new(0, 0, 0, 0)
-header.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-header.TextColor3 = Color3.fromRGB(255, 255, 255)
-header.Font = Enum.Font.SourceSansBold
-header.TextSize = 32
-header.Text = "VortexFusionX"
+ResetOnSpawn = false
 
--- Left Side: Scrollable Tab Section (takes small space)
-local leftTabSection = Instance.new("ScrollingFrame", mainFrame)
-leftTabSection.Size = UDim2.new(0.2, 0, 1, -50)  -- 20% width, full height minus header
-leftTabSection.Position = UDim2.new(0, 0, 0, 50)  -- Starts below the header
-leftTabSection.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-leftTabSection.BorderSizePixel = 0
-leftTabSection.CanvasSize = UDim2.new(0, 0, 3, 0)  -- Make it scrollable
-leftTabSection.ScrollBarThickness = 6
+local Frame2 = Instance.new("Frame")
+Frame2.Size = UDim2.new(1, 0, 0, 55)
+Frame2.Position = UDim2.new(0, 0, 0, 0)
+Frame2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Frame2.BorderColor3 = Color3.new(0, 0, 0)
+Frame2.BorderSizePixel = 2
+Frame2.Active = true
+Frame2.BackgroundTransparency = 0 
+Frame2.Draggable = false
+Frame2.Parent = Frame
 
--- Add fewer tabs (5 tabs) to the scrollable section
-for i = 1, 5 do
-    local tabButton = Instance.new("TextButton", leftTabSection)
-    tabButton.Size = UDim2.new(1, 0, 0, 50)
-    tabButton.Position = UDim2.new(0, 0, 0, (i-1) * 55)
-    tabButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-    tabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    tabButton.Font = Enum.Font.SourceSans
-    tabButton.TextSize = 20
-    tabButton.Text = "Tab " .. i
-end
-
--- Right Side: Scrollable Section for placing buttons (no sample button)
-local rightButtonSection = Instance.new("ScrollingFrame", mainFrame)
-rightButtonSection.Size = UDim2.new(0.75, 0, 1, -50)  -- 75% width, full height minus header
-rightButtonSection.Position = UDim2.new(0.2, 0, 0, 50)  -- Right of tabs, below the header
-rightButtonSection.BackgroundColor3 = Color3.fromRGB(98, 93, 93)
-rightButtonSection.BorderSizePixel = 0
-rightButtonSection.CanvasSize = UDim2.new(0, 0, 3, 0)  -- Make it scrollable
-rightButtonSection.ScrollBarThickness = 6
-
--- Toggle UI visibility function
-local uiVisible = true
-toggleButton.MouseButton1Click:Connect(function()
-    uiVisible = not uiVisible
-    mainFrame.Visible = uiVisible
-end)
-
--- Dragging functionality for the entire GUI (mainFrame)
-local dragging = false
-local dragInput, mousePos, framePos
-
-mainFrame.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = true
-        mousePos = input.Position
-        framePos = mainFrame.Position
-
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
-
-mainFrame.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
-        dragInput = input
-    end
-end)
-
-userInputService.InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        local delta = input.Position - mousePos
-        mainFrame.Position = UDim2.new(
-            framePos.X.Scale,
-            framePos.X.Offset + delta.X,
-            framePos.Y.Scale,
-            framePos.Y.Offset + delta.Y
-        )
-    end
-end)
-
--- Create the button for Tab 1 (hidden by default)
-local tab1Button = Instance.new("TextButton")
-tab1Button.Size = UDim2.new(0, 200, 0, 50)
-tab1Button.Position = UDim2.new(0.5, -100, 0.1, 0)
-tab1Button.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-tab1Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-tab1Button.Font = Enum.Font.SourceSansBold
-tab1Button.TextSize = 24
-tab1Button.Text = "Tab 1 Button"
-tab1Button.Visible = false  -- Hide by default
-tab1Button.Parent = rightButtonSection  -- Add this button to the right scrollable section
-
--- Create another button for Tab 2
-local tab2Button = Instance.new("TextButton")
-tab2Button.Size = UDim2.new(0, 200, 0, 50)
-tab2Button.Position = UDim2.new(0.5, -100, 0.1, 0)  -- Adjust the position to be below the first button
-tab2Button.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-tab2Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-tab2Button.Font = Enum.Font.SourceSansBold
-tab2Button.TextSize = 24
-tab2Button.Text = "Tab 2 Button"
-tab2Button.Visible = false  -- Hide by default
-tab2Button.Parent = rightButtonSection  -- Add this button to the right scrollable section
-
--- Function to show buttons based on the selected tab
-local function onTabSelected(tabName)
-    if tabName == "Tab 1" then
-        tab1Button.Visible = true
-        tab2Button.Visible = false
-    elseif tabName == "Tab 2" then
-        tab1Button.Visible = false
-        tab2Button.Visible = true
-    else
-        tab1Button.Visible = false
-        tab2Button.Visible = false
-    end
-end
-
--- Connect the tab buttons to show/hide the corresponding buttons
-for i, tabButton in pairs(leftTabSection:GetChildren()) do
-    if tabButton:IsA("TextButton") then
-        tabButton.MouseButton1Click:Connect(function()
-            onTabSelected(tabButton.Text)
-        end)
-    end
-end
+local Header = Instance.new("TextLabel")
+Header.Size = UDim2.new(1, 0, 0, 50)
+Header.Position = UDim2.new(0, -0.5, 0, 0)
+Header.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Header.BorderColor3 = Color3.new(0, 0, 0)
+Header.BorderSizePixel = 0
+Header.Text = "VortexFusionX"
+Header.BackgroundTransparency = 0 
+Header.TextColor3 = Color3.new(255, 255, 255)
+Header.Font = Enum.Font.Code
+Header.Parent = Frame2
+Header.TextSize = 36
