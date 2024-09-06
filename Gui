@@ -21,7 +21,7 @@ TextLabel1.BorderSizePixel = 5
 TextLabel1.BorderColor3 = Color3.fromRGB(0,0,255)
 TextLabel1.BackgroundTransparency = 1
 TextLabel1.Position = UDim2.new(0.3,0,0)
-TextLabel1.Text = "WalkSpeed = 100"
+TextLabel1.Text = "Change WalkSpeed"
 TextLabel1.TextSize = 30
 TextLabel1.Active = true
 TextLabel1.Draggable = false
