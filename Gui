@@ -1,74 +1,87 @@
-local gui = Instance.new("ScreenGui")
-gui.Name = "patrickGui"
-gui.Parent = game.CoreGui
+local ScreenGui1 = Instance.new("ScreenGui") 
+ScreenGui1.Parent = game.CoreGui
 
---///patrick gui maker///--
+local Frame1 = Instance.new("Frame") 
+Frame1.Parent = ScreenGui1
+Frame1.Name = "Frame"
+Frame1.BackgroundColor3 = Color3.fromRGB(242,243,243)
+Frame1.BorderSizePixel = 5
+Frame1.BorderColor3 = Color3.fromRGB(0,0,255)
+Frame1.Size = UDim2.new(0.5,0,0.5)
+Frame1.Position = UDim2.new(0.5,0,0)
+Frame1.Active = true
+Frame1.Draggable = true
 
+local TextLabel1 = Instance.new("TextLabel") 
+TextLabel1.Size = UDim2.new(0.4,0,0.2)
+TextLabel1.Font = Enum.Font.Bangers
+TextLabel1.Parent = Frame1
+TextLabel1.Name = "Text"
+TextLabel1.BorderSizePixel = 5
+TextLabel1.BorderColor3 = Color3.fromRGB(0,0,255)
+TextLabel1.BackgroundTransparency = 1
+TextLabel1.Position = UDim2.new(0.3,0,0)
+TextLabel1.Text = "WalkSpeed = 100"
+TextLabel1.TextSize = 30
+TextLabel1.Active = true
+TextLabel1.Draggable = false
+TextLabel1.TextColor3 = Color3.fromRGB(0,0,255)
+TextLabel1.TextScaled = true
+TextLabel1.TextWrapped = true
 
-local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0.5, 0, 0.5, 0)
-Frame.Position = UDim2.new(0.3, 0, 0.2, 0)
-Frame.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Frame.BorderColor3 = Color3.new(0, 0, 0)
-Frame.BorderSizePixel = 5
-Frame.Active = true
-Frame.BackgroundTransparency = 0 
-Frame.Draggable = true
-Frame.Parent = gui
+local TextLabel2 = Instance.new("TextLabel") 
+TextLabel2.Size = UDim2.new(0.4,0,0.2)
+TextLabel2.Font = Enum.Font.Bangers
+TextLabel2.Parent = Frame1
+TextLabel2.Name = "Text"
+TextLabel2.BorderSizePixel = 5
+TextLabel2.BorderColor3 = Color3.fromRGB(0,0,255)
+TextLabel2.BackgroundTransparency = 1
+TextLabel2.Position = UDim2.new(0.3,0,0.15)
+TextLabel2.Text = "Click Button Many Times To Work"
+TextLabel2.TextSize = 30
+TextLabel2.Active = true
+TextLabel2.Draggable = false
+TextLabel2.TextColor3 = Color3.fromRGB(0,0,255)
+TextLabel2.TextScaled = true
+TextLabel2.TextWrapped = true
 
-ResetOnSpawn = false
+local TextButton1 = Instance.new("TextButton") 
+TextButton1.Parent = Frame1
+TextButton1.Name = "Walkspeed button"
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,255)
+TextButton1.BorderSizePixel = 5
+TextButton1.BorderColor3 = Color3.fromRGB(0,0,0)
+TextButton1.Position = UDim2.new(0.1,0,0.4)
+TextButton1.Size = UDim2.new(0.8,0,0.2)
+TextButton1.TextSize = 30
+TextButton1.TextScaled = true
+TextButton1.TextWrapped = true
+TextButton1.Text = "100"
+TextButton1.Font = Enum.Font.Arcade
 
-local Header = Instance.new("Frame")
-Header.Size = UDim2.new(1, 0, 0.1, 0)
-Header.Position = UDim2.new(0, 0, 0, 0)
-Header.BackgroundColor3 = Color3.fromRGB(98, 93, 93)
-Header.BorderColor3 = Color3.new(0, 0, 0)
-Header.BorderSizePixel = 5
-Header.Active = true
-Header.BackgroundTransparency = 0 
-Header.Draggable = false
-Header.Parent = Frame
+local TextButton2 = Instance.new("TextButton") 
+TextButton2.Parent = Frame1
+TextButton2.Name = "Reset button"
+TextButton2.BackgroundColor3 = Color3.fromRGB(0,0,255)
+TextButton2.BorderSizePixel = 5
+TextButton2.BorderColor3 = Color3.fromRGB(0,0,0)
+TextButton2.Position = UDim2.new(0.1,0,0.6)
+TextButton2.Size = UDim2.new(0.8,0,0.3)
+TextButton2.TextSize = 30
+TextButton2.TextScaled = true
+TextButton2.TextWrapped = true
+TextButton2.Text = "Reset Speed"
+TextButton2.Font = Enum.Font.Arcade
 
-local HeaderText = Instance.new("TextLabel")
-HeaderText.Size = UDim2.new(0.3, 0, 0.2, 0)
-HeaderText.Position = UDim2.new(0.3, 0, 0.4, 0)
-HeaderText.BackgroundColor3 = Color3.new(0, 0, 0)
-HeaderText.BorderColor3 = Color3.new(0, 0, 0)
-HeaderText.BorderSizePixel = 1
-HeaderText.Text = " VortexFusionX"
-HeaderText.BackgroundTransparency = 1 
-HeaderText.TextColor3 = Color3.new(255, 255, 255)
-HeaderText.Font = Enum.Font.Code
-HeaderText.Parent = Header
-HeaderText.TextSize = 36
+TextButton1.MouseButton1Click:Connect(function() 
+while wait() do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end
+end)
 
-local MiddleFrame = Instance.new("ScrollingFrame")
-MiddleFrame.Size = UDim2.new(0.6, 0, 0.8, 0)
-MiddleFrame.Position = UDim2.new(0.4, 0, 0.2, 0)
-MiddleFrame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-MiddleFrame.BorderColor3 = Color3.new(0, 0, 0)
-MiddleFrame.BorderSizePixel = 5
-MiddleFrame.Parent = Frame
-MiddleFrame.BackgroundTransparency = 0
-
-local TextButton = Instance.new("TextButton")
-TextButton.Size = UDim2.new(1, 0, 0.1, 0)
-TextButton.Position = UDim2.new(0, 0, 0, 0)
-TextButton.BackgroundColor3 = Color3.new(0, 0, 0)
-TextButton.BorderColor3 = Color3.new(0, 0, 0)
-TextButton.BorderSizePixel = 1
-TextButton.Text = "Print Skibidi"
-TextButton.BackgroundTransparency = 0 
-TextButton.TextColor3 = Color3.new(255, 255, 255)
-TextButton.Font = Enum.Font.Code
-TextButton.Parent = MiddleFrame
-TextButton.TextSize = 36
-
-
-
-
-
-
-
-
- 
+TextButton2.MouseButton1Click:Connect(function() 
+while wait() do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end
+end)
