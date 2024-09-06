@@ -6,11 +6,11 @@ gui.Parent = game.CoreGui
 
 
 local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0.6, 0, 0.6, 0)
-Frame.Position = UDim2.new(0.30, 0, 0.30, 0)
+Frame.Size = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Position = UDim2.new(0.3, 0, 0.2, 0)
 Frame.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 2
+Frame.BorderColor3 = Color3.new(0, 0, 0)
+Frame.BorderSizePixel = 5
 Frame.Active = true
 Frame.BackgroundTransparency = 0 
 Frame.Draggable = true
@@ -18,51 +18,57 @@ Frame.Parent = gui
 
 ResetOnSpawn = false
 
-local ScrollingFrame = Instance.new("ScrollingFrame")
-ScrollingFrame.Size = UDim2.new(0.8, 0, 0.8, 0)
-ScrollingFrame.Position = UDim2.new(0.20, 0, 0.20, 0)
-ScrollingFrame.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-ScrollingFrame.BorderColor3 = Color3.new(0, 0, 0)
-ScrollingFrame.BorderSizePixel = 1
-ScrollingFrame.Parent = Frame
-
-
-ScrollingFrame.BackgroundTransparency = 0
-
-local Frame2 = Instance.new("Frame")
-Frame2.Size = UDim2.new(1, 0, 0, 55)
-Frame2.Position = UDim2.new(0, 0, 0, 0)
-Frame2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-Frame2.BorderColor3 = Color3.new(0, 0, 0)
-Frame2.BorderSizePixel = 2
-Frame2.Active = true
-Frame2.BackgroundTransparency = 0 
-Frame2.Draggable = false
-Frame2.Parent = Frame
-
-local Header = Instance.new("TextLabel")
-Header.Size = UDim2.new(1, 0, 0, 50)
-Header.Position = UDim2.new(0, -0.5, 0, 0)
-Header.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+local Header = Instance.new("Frame")
+Header.Size = UDim2.new(1, 0, 0.1, 0)
+Header.Position = UDim2.new(0, 0, 0, 0)
+Header.BackgroundColor3 = Color3.fromRGB(98, 93, 93)
 Header.BorderColor3 = Color3.new(0, 0, 0)
-Header.BorderSizePixel = 0
-Header.Text = "VortexFusionX"
+Header.BorderSizePixel = 5
+Header.Active = true
 Header.BackgroundTransparency = 0 
-Header.TextColor3 = Color3.new(255, 255, 255)
-Header.Font = Enum.Font.Code
-Header.Parent = Frame2
-Header.TextSize = 36
+Header.Draggable = false
+Header.Parent = Frame
+
+local HeaderText = Instance.new("TextLabel")
+HeaderText.Size = UDim2.new(0.3, 0, 0.2, 0)
+HeaderText.Position = UDim2.new(0.3, 0, 0.4, 0)
+HeaderText.BackgroundColor3 = Color3.new(0, 0, 0)
+HeaderText.BorderColor3 = Color3.new(0, 0, 0)
+HeaderText.BorderSizePixel = 1
+HeaderText.Text = " VortexFusionX"
+HeaderText.BackgroundTransparency = 1 
+HeaderText.TextColor3 = Color3.new(255, 255, 255)
+HeaderText.Font = Enum.Font.Code
+HeaderText.Parent = Header
+HeaderText.TextSize = 36
+
+local MiddleFrame = Instance.new("ScrollingFrame")
+MiddleFrame.Size = UDim2.new(0.6, 0, 0.8, 0)
+MiddleFrame.Position = UDim2.new(0.4, 0, 0.2, 0)
+MiddleFrame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+MiddleFrame.BorderColor3 = Color3.new(0, 0, 0)
+MiddleFrame.BorderSizePixel = 5
+MiddleFrame.Parent = Frame
+MiddleFrame.BackgroundTransparency = 0
 
 local TextButton = Instance.new("TextButton")
-TextButton.Size = UDim2.new(0.5, 0, 0.1, 0)
+TextButton.Size = UDim2.new(1, 0, 0.1, 0)
 TextButton.Position = UDim2.new(0, 0, 0, 0)
 TextButton.BackgroundColor3 = Color3.new(0, 0, 0)
 TextButton.BorderColor3 = Color3.new(0, 0, 0)
 TextButton.BorderSizePixel = 1
-TextButton.Text = "Print skibidi"
+TextButton.Text = "Print Skibidi"
 TextButton.BackgroundTransparency = 0 
 TextButton.TextColor3 = Color3.new(255, 255, 255)
 TextButton.Font = Enum.Font.Code
-TextButton.Parent = ScrollingFrame
+TextButton.Parent = MiddleFrame
+TextButton.TextSize = 36
 
-TextButton.TextSize = 30
+
+
+
+
+
+
+
+ 
