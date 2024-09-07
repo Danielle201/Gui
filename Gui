@@ -1,87 +1,191 @@
 local ScreenGui1 = Instance.new("ScreenGui") 
 ScreenGui1.Parent = game.CoreGui
+ScreenGui1.Name = "Gui"
 
 local Frame1 = Instance.new("Frame") 
 Frame1.Parent = ScreenGui1
 Frame1.Name = "Frame"
-Frame1.BackgroundColor3 = Color3.fromRGB(242,243,243)
-Frame1.BorderSizePixel = 5
-Frame1.BorderColor3 = Color3.fromRGB(0,0,255)
+Frame1.BackgroundColor3 = Color3.fromRGB(161,165,162)
+Frame1.BorderSizePixel = 0
+Frame1.BorderColor3 = Color3.fromRGB(17,17,17)
+Frame1.Position = UDim2.new(0.3,0,0.4)
 Frame1.Size = UDim2.new(0.5,0,0.5)
-Frame1.Position = UDim2.new(0.5,0,0)
 Frame1.Active = true
 Frame1.Draggable = true
 
+local UICorner1 = Instance.new("UICorner") 
+UICorner1.Parent = Frame1
+UICorner1.CornerRadius = UDim.new(0.3,0)
+
+local UIStroke1 = Instance.new("UIStroke") 
+UIStroke1.Parent = Frame1
+UIStroke1.Transparency = 0.8
+UIStroke1.Color = Color3.fromRGB(17,17,17)
+UIStroke1.Thickness = 5
+
 local TextLabel1 = Instance.new("TextLabel") 
-TextLabel1.Size = UDim2.new(0.4,0,0.2)
-TextLabel1.Font = Enum.Font.Bangers
 TextLabel1.Parent = Frame1
-TextLabel1.Name = "Text"
-TextLabel1.BorderSizePixel = 5
-TextLabel1.BorderColor3 = Color3.fromRGB(0,0,255)
+TextLabel1.Name = "Header"
+TextLabel1.BackgroundColor3 = Color3.fromRGB(161,165,162)
 TextLabel1.BackgroundTransparency = 1
-TextLabel1.Position = UDim2.new(0.3,0,0)
-TextLabel1.Text = "Change WalkSpeed"
+TextLabel1.BorderSizePixel = 0
+TextLabel1.BorderColor3 = Color3.fromRGB(17,17,17)
+TextLabel1.Position = UDim2.new(0.25,0,-0.1)
+TextLabel1.Size = UDim2.new(0.5,0,0.4)
+TextLabel1.Font = Enum.Font.FredokaOne
+TextLabel1.TextColor3 = Color3.fromRGB(17,17,17)
+TextLabel1.Text = "WalkSpeed/JumpPower Changer"
 TextLabel1.TextSize = 30
-TextLabel1.Active = true
-TextLabel1.Draggable = false
-TextLabel1.TextColor3 = Color3.fromRGB(0,0,255)
 TextLabel1.TextScaled = true
 TextLabel1.TextWrapped = true
-
-local TextLabel2 = Instance.new("TextLabel") 
-TextLabel2.Size = UDim2.new(0.4,0,0.2)
-TextLabel2.Font = Enum.Font.Bangers
-TextLabel2.Parent = Frame1
-TextLabel2.Name = "Text"
-TextLabel2.BorderSizePixel = 5
-TextLabel2.BorderColor3 = Color3.fromRGB(0,0,255)
-TextLabel2.BackgroundTransparency = 1
-TextLabel2.Position = UDim2.new(0.3,0,0.20)
-TextLabel2.Text = "Click Button Many Times To Work"
-TextLabel2.TextSize = 30
-TextLabel2.Active = true
-TextLabel2.Draggable = false
-TextLabel2.TextColor3 = Color3.fromRGB(0,0,255)
-TextLabel2.TextScaled = true
-TextLabel2.TextWrapped = true
+TextLabel1.Active = true
+TextLabel1.Draggable = false
 
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = Frame1
-TextButton1.Name = "Walkspeed button"
-TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,255)
-TextButton1.BorderSizePixel = 5
-TextButton1.BorderColor3 = Color3.fromRGB(0,0,0)
-TextButton1.Position = UDim2.new(0.1,0,0.4)
-TextButton1.Size = UDim2.new(0.8,0,0.2)
-TextButton1.TextSize = 30
+TextButton1.Name = "SpeedButton"
+TextButton1.BackgroundColor3 = Color3.fromRGB(17,17,17)
+TextButton1.BackgroundTransparency = 0
+TextButton1.BorderSizePixel = 0
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
+TextButton1.Position = UDim2.new(0.1,0,0.25)
+TextButton1.Size = UDim2.new(0.3,0,0.3)
+TextButton1.Font = Enum.Font.FredokaOne
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
+TextButton1.Text = "Change WalkSpeed To 100"
+TextButton1.TextSize = 20
 TextButton1.TextScaled = true
 TextButton1.TextWrapped = true
-TextButton1.Text = "100"
-TextButton1.Font = Enum.Font.Arcade
+TextButton1.Active = true
+TextButton1.Draggable = false
+
+local UICorner2 = Instance.new("UICorner") 
+UICorner2.Parent = TextButton1
+UICorner2.CornerRadius = UDim.new(0.3,0)
 
 local TextButton2 = Instance.new("TextButton") 
 TextButton2.Parent = Frame1
-TextButton2.Name = "Reset button"
-TextButton2.BackgroundColor3 = Color3.fromRGB(0,0,255)
-TextButton2.BorderSizePixel = 5
-TextButton2.BorderColor3 = Color3.fromRGB(0,0,0)
-TextButton2.Position = UDim2.new(0.1,0,0.6)
-TextButton2.Size = UDim2.new(0.8,0,0.3)
-TextButton2.TextSize = 30
+TextButton2.Name = "SpeedButton"
+TextButton2.BackgroundColor3 = Color3.fromRGB(17,17,17)
+TextButton2.BackgroundTransparency = 0
+TextButton2.BorderSizePixel = 0
+TextButton2.BorderColor3 = Color3.fromRGB(17,17,17)
+TextButton2.Position = UDim2.new(0.6,0,0.25)
+TextButton2.Size = UDim2.new(0.3,0,0.3)
+TextButton2.Font = Enum.Font.FredokaOne
+TextButton2.TextColor3 = Color3.fromRGB(242,243,243)
+TextButton2.Text = "Reset WalkSpeed"
+TextButton2.TextSize = 20
 TextButton2.TextScaled = true
 TextButton2.TextWrapped = true
-TextButton2.Text = "Reset Speed"
-TextButton2.Font = Enum.Font.Arcade
+TextButton2.Active = true
+TextButton2.Draggable = false
+
+local UICorner3 = Instance.new("UICorner") 
+UICorner3.Parent = TextButton2
+UICorner3.CornerRadius = UDim.new(0.3,0)
+
+local TextButton3 = Instance.new("TextButton") 
+TextButton3.Parent = Frame1
+TextButton3.Name = "SpeedButton"
+TextButton3.BackgroundColor3 = Color3.fromRGB(17,17,17)
+TextButton3.BackgroundTransparency = 0
+TextButton3.BorderSizePixel = 0
+TextButton3.BorderColor3 = Color3.fromRGB(17,17,17)
+TextButton3.Position = UDim2.new(0.1,0,0.6)
+TextButton3.Size = UDim2.new(0.3,0,0.3)
+TextButton3.Font = Enum.Font.FredokaOne
+TextButton3.TextColor3 = Color3.fromRGB(242,243,243)
+TextButton3.Text = "Change JumpPower To 150"
+TextButton3.TextSize = 20
+TextButton3.TextScaled = true
+TextButton3.TextWrapped = true
+TextButton3.Active = true
+TextButton3.Draggable = false
+
+local UICorner4 = Instance.new("UICorner") 
+UICorner4.Parent = TextButton3
+UICorner4.CornerRadius = UDim.new(0.3,0)
+
+local TextButton4 = Instance.new("TextButton") 
+TextButton4.Parent = Frame1
+TextButton4.Name = "SpeedButton"
+TextButton4.BackgroundColor3 = Color3.fromRGB(17,17,17)
+TextButton4.BackgroundTransparency = 0
+TextButton4.BorderSizePixel = 0
+TextButton4.BorderColor3 = Color3.fromRGB(17,17,17)
+TextButton4.Position = UDim2.new(0.6,0,0.6)
+TextButton4.Size = UDim2.new(0.3,0,0.3)
+TextButton4.Font = Enum.Font.FredokaOne
+TextButton4.TextColor3 = Color3.fromRGB(242,243,243)
+TextButton4.Text = "Reset JumpPower"
+TextButton4.TextSize = 20
+TextButton4.TextScaled = true
+TextButton4.TextWrapped = true
+TextButton4.Active = true
+TextButton4.Draggable = false
+
+local UICorner5 = Instance.new("UICorner") 
+UICorner5.Parent = TextButton4
+UICorner5.CornerRadius = UDim.new(0.3,0)
 
 TextButton1.MouseButton1Click:Connect(function() 
-while wait() do
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+local player = game.Players.LocalPlayer
+
+-- Infinite loop to constantly set the WalkSpeed
+while true do
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.WalkSpeed = 100 -- Set your desired WalkSpeed
+    end
+
+    -- Wait for a short amount of time to prevent freezing the game
+    wait(0.1)
 end
 end)
 
 TextButton2.MouseButton1Click:Connect(function() 
-while wait() do
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+local player = game.Players.LocalPlayer
+
+-- Infinite loop to constantly set the WalkSpeed
+while true do
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.WalkSpeed = 16 -- Set your desired WalkSpeed
+    end
+
+    -- Wait for a short amount of time to prevent freezing the game
+    wait(0.1)
+end
+
+end)
+
+TextButton3.MouseButton1Click:Connect(function() 
+local player = game.Players.LocalPlayer
+
+-- Infinite loop
+while true do
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.JumpPower = 150
+    end
+
+    -- Wait for a short amount of time to prevent freezing the game
+    wait(0.1)
+end
+end)
+
+TextButton4.MouseButton1Click:Connect(function() 
+local player = game.Players.LocalPlayer
+
+-- Infinite loop
+while true do
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.JumpPower = 50
+    end
+
+    -- Wait for a short amount of time to prevent freezing the game
+    wait(0.1)
 end
 end)
