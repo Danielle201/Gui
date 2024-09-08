@@ -136,7 +136,7 @@ local player = game.Players.LocalPlayer
 while wait() do
     -- Check if the character and humanoid exist
     if player.Character and player.Character:FindFirstChild("Humanoid") then
-        player.Character.Humanoid.WalkSpeed = 16 -- Set your desired WalkSpeed
+        player.Character.Humanoid.WalkSpeed = 100 -- Set your desired WalkSpeed
     end
 
     -- Wait for a short amount of time to prevent freezing the game
