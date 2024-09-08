@@ -13,6 +13,8 @@ end
 -- Call the function to send the notification
 sendNotification()
 
+wait(2)
+
 local ScreenGui1 = Instance.new("ScreenGui") 
 ScreenGui1.Parent = game.CoreGui
 ScreenGui1.Name = "Gui"
