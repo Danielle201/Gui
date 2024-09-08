@@ -1,15 +1,4 @@
-local StarterGui = game:GetService("StarterGui")
-
--- Function to display the notification
-local function showNotification()
-    StarterGui:SetCore("SendNotification", {
-        Title = "Hey!",
-        Text = "The WalkSpeed Is Buggy. Also Made By Bloxhub",
-        Duration = 5,
-        Button1 = "Execute",
-        Callback = function(buttonPressed)
-            if buttonPressed == "OK" then
-                local ScreenGui1 = Instance.new("ScreenGui") 
+local ScreenGui1 = Instance.new("ScreenGui") 
 ScreenGui1.Parent = game.CoreGui
 ScreenGui1.Name = "Gui"
 
@@ -195,11 +184,3 @@ while wait() do
     wait()
 end
 end)
-
-            end
-        end
-    })
-end
-
--- Call the function to show the notification
-showNotification()
