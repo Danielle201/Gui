@@ -140,7 +140,7 @@ while true do
     end
 
     -- Wait for a short amount of time to prevent freezing the game
-    wait(0.1)
+    wait()
 end
 end)
 
@@ -155,7 +155,7 @@ while true do
     end
 
     -- Wait for a short amount of time to prevent freezing the game
-    wait(0.1)
+    wait(0)
 end
 
 end)
@@ -171,7 +171,7 @@ while true do
     end
 
     -- Wait for a short amount of time to prevent freezing the game
-    wait(0.1)
+    wait()
 end
 end)
 
@@ -186,6 +186,6 @@ while true do
     end
 
     -- Wait for a short amount of time to prevent freezing the game
-    wait(0.1)
+    wait()
 end
 end)
