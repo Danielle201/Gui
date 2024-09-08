@@ -132,30 +132,29 @@ UICorner5.CornerRadius = UDim.new(0.3,0)
 TextButton1.MouseButton1Click:Connect(function()
 local player = game.Players.LocalPlayer
 
--- Infinite loop to constantly set the WalkSpeed
+-- Infinite loop
 while wait() do
     -- Check if the character and humanoid exist
     if player.Character and player.Character:FindFirstChild("Humanoid") then
         player.Character.Humanoid.WalkSpeed = 100 -- Set your desired WalkSpeed
     end
 
-    -- Wait for a short amount of time to prevent freezing the game
     wait()
 end
 end)
 
 TextButton2.MouseButton1Click:Connect(function() 
 local player = game.Players.LocalPlayer
+local defaultWalkSpeed = 16 -- Default
 
--- Infinite loop to constantly set the WalkSpeed
-while wait() do
-    -- Check if the character and humanoid exist
-    if player.Character and player.Character:FindFirstChild("Humanoid") then
-        player.Character.Humanoid.WalkSpeed = 16 -- Set your desired WalkSpeed
+-- Check if the character and humanoid exist
+if player.Character and player.Character:FindFirstChild("Humanoid") then
+    local humanoid = player.Character:FindFirstChild("Humanoid")
+    
+    -- Check if WalkSpeed is 100
+    if humanoid.WalkSpeed == 100 then
+        humanoid.WalkSpeed = defaultWalkSpeed -- Reset to default speed
     end
-
-    -- Wait for a short amount of time to prevent freezing the game
-    wait()
 end
 end)
 
@@ -169,22 +168,21 @@ while wait() do
         player.Character.Humanoid.JumpPower = 150
     end
 
-    -- Wait for a short amount of time to prevent freezing the game
     wait()
 end
 end)
 
 TextButton4.MouseButton1Click:Connect(function() 
 local player = game.Players.LocalPlayer
+local defaultJumpPower = 50 -- Default
 
--- Infinite loop
-while wait() do
-    -- Check if the character and humanoid exist
-    if player.Character and player.Character:FindFirstChild("Humanoid") then
-        player.Character.Humanoid.JumpPower = 50
+-- Check if the character and humanoid exist
+if player.Character and player.Character:FindFirstChild("Humanoid") then
+    local humanoid = player.Character:FindFirstChild("Humanoid")
+    
+    -- Check if JumpPower is 150
+    if humanoid.JumpPower == 150 then
+        humanoid.JumpPower = defaultJumpPower
     end
-
-    -- Wait for a short amount of time to prevent freezing the game
-    wait()
 end
 end)
