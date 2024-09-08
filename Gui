@@ -129,26 +129,11 @@ local UICorner5 = Instance.new("UICorner")
 UICorner5.Parent = TextButton4
 UICorner5.CornerRadius = UDim.new(0.3,0)
 
-TextButton1.MouseButton1Click:Connect(function() 
+TextButton1.MouseButton1Click:Connect(function()
 local player = game.Players.LocalPlayer
 
 -- Infinite loop to constantly set the WalkSpeed
-while true do
-    -- Check if the character and humanoid exist
-    if player.Character and player.Character:FindFirstChild("Humanoid") then
-        player.Character.Humanoid.WalkSpeed = 100 -- Set your desired WalkSpeed
-    end
-
-    -- Wait for a short amount of time to prevent freezing the game
-    wait()
-end
-end)
-
-TextButton2.MouseButton1Click:Connect(function() 
-local player = game.Players.LocalPlayer
-
--- Infinite loop to constantly set the WalkSpeed
-while true do
+while wait() do
     -- Check if the character and humanoid exist
     if player.Character and player.Character:FindFirstChild("Humanoid") then
         player.Character.Humanoid.WalkSpeed = 16 -- Set your desired WalkSpeed
@@ -157,14 +142,28 @@ while true do
     -- Wait for a short amount of time to prevent freezing the game
     wait(0)
 end
+end)
 
+TextButton2.MouseButton1Click:Connect(function() 
+local player = game.Players.LocalPlayer
+
+-- Infinite loop to constantly set the WalkSpeed
+while wait() do
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.WalkSpeed = 16 -- Set your desired WalkSpeed
+    end
+
+    -- Wait for a short amount of time to prevent freezing the game
+    wait(0)
+end
 end)
 
 TextButton3.MouseButton1Click:Connect(function() 
 local player = game.Players.LocalPlayer
 
 -- Infinite loop
-while true do
+while wait() do
     -- Check if the character and humanoid exist
     if player.Character and player.Character:FindFirstChild("Humanoid") then
         player.Character.Humanoid.JumpPower = 150
@@ -179,7 +178,7 @@ TextButton4.MouseButton1Click:Connect(function()
 local player = game.Players.LocalPlayer
 
 -- Infinite loop
-while true do
+while wait() do
     -- Check if the character and humanoid exist
     if player.Character and player.Character:FindFirstChild("Humanoid") then
         player.Character.Humanoid.JumpPower = 50
