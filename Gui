@@ -136,7 +136,7 @@ local player = game.Players.LocalPlayer
 while wait() do
     -- Check if the character and humanoid exist
     if player.Character and player.Character:FindFirstChild("Humanoid") then
-        player.Character.Humanoid.WalkSpeed = 100 -- Set your desired WalkSpeed
+        player.Character.Humanoid.WalkSpeed = 100
     end
 
     wait()
@@ -144,8 +144,16 @@ end
 end)
 
 TextButton2.MouseButton1Click:Connect(function() 
+local player = game.Players.LocalPlayer
+
+-- Infinite loop
 while wait() do
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.WalkSpeed = 16
+    end
+
+    wait()
 end
 end)
 
@@ -164,7 +172,15 @@ end
 end)
 
 TextButton4.MouseButton1Click:Connect(function() 
+local player = game.Players.LocalPlayer
+
+-- Infinite loop
 while wait() do
-game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    -- Check if the character and humanoid exist
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.JumpPower = 50
+    end
+
+    wait()
 end
 end)
